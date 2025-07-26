@@ -11,6 +11,8 @@ public class InstantiatePoolObject : MonoBehaviour
     public Transform _parent;
     private List<GameObject> _pool = new List<GameObject>();
 
+    private GameObject _currentObject;
+
     private GameObject GetObject()
     {
         foreach (var obj in _pool)
@@ -24,17 +26,21 @@ public class InstantiatePoolObject : MonoBehaviour
         _pool.Add(newObj);
         return newObj;
     }
-
-    public void InstatiateObject(Transform target)
+    public GameObject GetCurrentObject()
     {
-        var obj = GetObject();
-        SetObjectPosition(obj, target.position, target.rotation);
+        return _currentObject;
+    }
+
+    public void InstantiateObject(Transform target)
+    {
+        _currentObject = GetObject();
+        SetObjectPosition(_currentObject, target.position, target.rotation);
     }
 
     public void InstatiateObject(Vector3 position)
     {
-        var obj = GetObject();
-        SetObjectPosition(obj, position, Quaternion.identity);
+        _currentObject = GetObject();
+        SetObjectPosition(_currentObject, position, Quaternion.identity);
     }
 
     public void SetObjectPosition(GameObject obj, Vector3 position, Quaternion rotation)

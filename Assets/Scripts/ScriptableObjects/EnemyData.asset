@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: 
   attackRange: 0.05
-  AttackDamage: 10
+  AttackDamage: 5
   runSpeed: 0.01
   attackDuration: 1
   attackCooldown: 1
@@ -23,3 +23,4 @@ MonoBehaviour:
   attackAnimationName: MagoKick
   dieAnimationName: MagoDying
   winAnimationName: MagoVictory
+  dieSoundName: EnemyDie

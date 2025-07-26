@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         {
             Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
             _targetPosition = targetPosition;
-            _targetHealth = transform.GetComponent<Health>();
+            _targetHealth = target.GetComponent<Health>();
             _isRunning = true;
             _animator.Play(_enemyData.runAnimationName);
         }
@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator DieCoroutine()
     {
+        SoundManager.instance.Play(_enemyData.dieSoundName);
         _animator.Play(_enemyData.dieAnimationName);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
