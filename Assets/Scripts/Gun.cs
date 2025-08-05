@@ -16,10 +16,19 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private string _targetTag = "Zombie";
 
+    [SerializeField]
+    private string _targetTagM = "Mutant";
+
+
     private EnemyTarget _target;
     private void OnTriggerStay(Collider other)
     {
         if (_target == null && other.CompareTag(_targetTag))
+        {
+            _target = new EnemyTarget(other.transform, other.GetComponent<Health>());
+            StartCoroutine(FireAtTarget());
+        }
+        if (_target == null && other.CompareTag(_targetTagM))
         {
             _target = new EnemyTarget(other.transform, other.GetComponent<Health>());
             StartCoroutine(FireAtTarget());

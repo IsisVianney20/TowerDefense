@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MutantData
   m_EditorClassIdentifier: 
   attackRange: 0.1
-  AttackDamage: 2
-  runSpeed: 0.05
+  AttackDamage: 10
+  runSpeed: 0.03
   attackDuration: 1
   attackCooldown: 1
   attackSoundName: ZombieAttack
